@@ -1,0 +1,50 @@
+
+NAME	=	libftprintf.a
+CC		=	gcc
+CFLAGS	=	-Wall -Werror -Wextra
+AR		=	ar
+ARFKAGS	= 	rcs
+RM		=	rm -f
+
+SOURCES =	ft_print_c. ft_print_basics.c ft_hexadecimals.c ft_pointers.c\
+
+SRCS 	= 	$(addsuffix.c, $(SOURCES))
+
+OBJ_DIR	=	obj
+OBJS 	= 	$(SOURCES:%.c=$(OBJ_DIR)%.o)
+
+LIBTF_PATH	=	./libft
+LIBFT		=	$(LIBFT_PATH)/ libft.a
+
+$(OBJ_DIR)/%.o:	%.c
+				$(CC) $(FLAGS) -c $< -o $@
+
+all: $(NAME)
+
+bonus:	all
+
+$(NAME):	$(OBJS) $(LIBFT) $(OBJ_DIR) 
+			cp	$(LIFT) $(AR) $(NAME) $(OBJS)
+
+$(LIBFT):	make -C $(LIBFT_) all
+
+$(OBJ_DIR):	mkdir -p $(OBJ_DIR)
+
+#bonus: $(OBJ) $(OBJBON)
+#	$(AR) $(NAME) $(OBJ) $(OBJBON)
+#	$(info Bonus functions compiled.)
+#	$(info * File '$<' compiled.)
+
+clean:	make -C $(LIBFT_PATH) clean
+		$(RM) -f $(OBJS_DIR)
+#	$(info Object files removed.)
+
+fclean: clean
+		make -C $(LIBFT_PATH) fclean
+		$(RM) $(NAME)
+#	$(info File '$ (NAME)' removed.)
+
+re: fclean all
+
+.PHONY: all bonus clean fclean re libft
+Name 
